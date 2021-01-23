@@ -36,12 +36,14 @@ app.post("/", function(req, res) {
     };
 
     const jsonData = JSON.stringify(data);
+    const apiKey = process.env.REACT_APP_MC_KEY;
+    const apiAuth = process.env.REACT_APP_MC_AUTH;
 
-    const url = "https://us19.api.mailchimp.com/3.0/lists/7cde348f7e";
+    const url = "https://us19.api.mailchimp.com/3.0/lists/${apiKey}";
 
     const options = {
         method: "POST",
-        auth: "davis:642b59f9f56f3a92f57f761d81199e50-us19"
+        auth: ${apiAuth}
     }
 
     const request = https.request(url, options, function(response) {
